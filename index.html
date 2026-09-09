@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0c0d" />
+  <meta name="description" content="66. The Judge's Birthday — an interactive modular-grid murder mystery." />
+  <title>66. The Judge's Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="grain"></div>
+    <header class="topbar">
+      <a class="brand" href="#hero" aria-label="The Judge's Birthday home">
+        <span class="brand-number">66</span>
+        <span>CASE FILE</span>
+      </a>
+      <nav>
+        <a href="#suspects">Suspects</a>
+        <a href="#mansion">Mansion</a>
+        <a href="#deduction">Deduction</a>
+      </nav>
+      <button class="sound-btn" id="soundBtn" aria-label="Toggle sound"><span>◉</span> SOUND <b>OFF</b></button>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-meta"><span>CASE 66 / PRIVATE RESIDENCE</span><span>11:47 PM</span></div>
+        <div class="hero-grid">
+          <div class="hero-kicker">A CINEMATIC LOGIC MYSTERY</div>
+          <h1>The Judge's<br><em>Birthday.</em></h1>
+          <p class="hero-sub">Guess he wasn't such a great <strong>judge of character.</strong></p>
+          <div class="hero-stamp"><span>CASE</span><strong>OPEN</strong><small>NO EMPTY ROOM</small></div>
+          <div class="hero-copy">A body. Eight guests. Six rooms. One impossible arrangement. Read the evidence, map the house, and make one accusation.</div>
+          <a class="cta" href="#suspects"><span>START INVESTIGATION</span><i>↘</i></a>
+        </div>
+        <div class="scroll-note">SCROLL TO ENTER THE CASE <span>↓</span></div>
+      </section>
+
+      <section class="section suspects-section" id="suspects">
+        <div class="section-head">
+          <span class="eyebrow">01 — PEOPLE OF INTEREST</span>
+          <h2>Everyone has<br><em>a place.</em></h2>
+          <p>Tap a file. Memorize the clue. Then place the evidence on the house.</p>
+        </div>
+        <div class="suspect-grid" id="suspectGrid"></div>
+      </section>
+
+      <section class="section mansion-section" id="mansion">
+        <div class="section-head">
+          <span class="eyebrow">02 — THE HOUSE</span>
+          <h2>Six rooms.<br><em>No empty room.</em></h2>
+          <p>Every clue describes a position, room, object, row or column. Click a room to inspect it.</p>
+        </div>
+        <div class="mansion-layout">
+          <div class="floorplan-wrap">
+            <div class="floor-label">PRIVATE RESIDENCE / FLOOR 01</div>
+            <div class="floorplan" id="floorplan"></div>
+            <div class="map-legend">
+              <span><i class="dot person"></i> PERSON</span>
+              <span><i class="dot evidence"></i> EVIDENCE</span>
+              <span><i class="dot victim"></i> VICTIM</span>
+            </div>
+          </div>
+          <aside class="room-panel" id="roomPanel">
+            <span class="eyebrow">ROOM INTEL</span>
+            <h3>Select a room</h3>
+            <p>Inspect a room to reveal its visual landmarks.</p>
+            <div class="room-facts" id="roomFacts"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section clues-section">
+        <div class="section-head">
+          <span class="eyebrow">03 — EVIDENCE WALL</span>
+          <h2>Read between<br><em>the clues.</em></h2>
+        </div>
+        <div class="clue-wall" id="clueWall"></div>
+      </section>
+
+      <section class="section deduction-section" id="deduction">
+        <div class="section-head">
+          <span class="eyebrow">04 — YOUR DEDUCTION</span>
+          <h2>Who was alone<br><em>with the victim?</em></h2>
+          <p>Choose one suspect. You only get one accusation.</p>
+        </div>
+        <div class="accusation-wrap">
+          <div class="accusation-card">
+            <div class="accusation-top"><span>FINAL ACCUSATION</span><span>ONE SHOT</span></div>
+            <div class="accusation-portrait" id="accusationPortrait"><span>?</span></div>
+            <div class="accusation-name" id="accusationName">SELECT A SUSPECT</div>
+            <div class="accusation-status" id="accusationStatus">The file is waiting.</div>
+          </div>
+          <div class="accusation-controls">
+            <div class="choice-grid" id="choiceGrid"></div>
+            <button class="accuse-btn" id="accuseBtn" disabled>MAKE THE ACCUSATION <span>→</span></button>
+            <button class="reset-btn" id="resetBtn">RESET CASE</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="ending" id="ending" aria-live="polite">
+        <div class="ending-inner">
+          <span class="eyebrow">CASE 66 / VERDICT</span>
+          <div class="verdict-symbol" id="verdictSymbol">?</div>
+          <h2 id="verdictTitle">CASE CLOSED?</h2>
+          <p id="verdictText"></p>
+          <button class="cta" id="againBtn"><span>REOPEN THE FILE</span><i>↺</i></button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>66 / THE JUDGE'S BIRTHDAY</span>
+      <span>AN INTERACTIVE LOGIC EXPERIENCE</span>
+      <span>© CASE FILE</span>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
